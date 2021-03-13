@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Bermatematika</string>
+    <string name="start">Mulai</string>
+    <string name="math1"><![CDATA[(■(x\'@y\'))=(■(cos⁡∝&-sin∝@sin⁡∝&cos⁡∝ ))(■(x-p@y-q))+(■(p@q))]]></string>
 </resources>
