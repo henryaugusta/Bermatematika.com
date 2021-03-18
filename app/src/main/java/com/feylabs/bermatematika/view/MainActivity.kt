@@ -1,12 +1,10 @@
-package com.feylabs.bermatematika
+package com.feylabs.bermatematika.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.feylabs.bermatematika.databinding.ActivityMainBinding
-import kotlinx.coroutines.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
