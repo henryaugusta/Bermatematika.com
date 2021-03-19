@@ -1,25 +1,41 @@
 package com.feylabs.bermatematika.model.notasi
 
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.feylabs.bermatematika.model.class7.Class7Model
+import org.json.JSONObject
 
-class NotasiModel {
-    lateinit var name: String
-    lateinit var read: String
-    lateinit var desc: String
-    lateinit var audioPath: String
+data class NotasiModel(
+    var name: String,
+    var read: String,
+    var desc: String,
+    var audioPath: String
+) {
+    var listModel = mutableListOf<NotasiModel>()
 
-    lateinit var data : MutableList<NotasiModel>
+    fun retrieveData(): MutableList<NotasiModel> {
+        AndroidNetworking.post("URL")
+            .addBodyParameter("", "")
+            .addBodyParameter("", "")
+            .build()
+            .getAsJSONObject(object : JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    listModel.add(
+                        NotasiModel(
+                            "", "", "", ""
+                        )
+                    )
+                }
 
-    constructor(name : String,read : String,desc : String , audioPath : String){
-        this.name = name
-        this.read = read
-        this.desc = desc
-        this.audioPath = audioPath
+                override fun onError(anError: ANError?) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+
+        return listModel
     }
 
-    fun setFormulaData(newData : MutableList<NotasiModel>){
-        this.data.addAll(newData)
-    }
 
-    fun getFormulaData() : MutableList<NotasiModel> = data
 }
