@@ -1,12 +1,25 @@
 package com.feylabs.bermatematika.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.feylabs.bermatematika.R
+import com.feylabs.bermatematika.databinding.ActivityMenuBinding
 
 class MenuActivity : AppCompatActivity() {
+
+    lateinit var viewBinding : ActivityMenuBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu)
+        viewBinding = ActivityMenuBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
+
+        viewBinding.apply {
+            btnNotation.setOnClickListener {
+             startActivity(Intent(applicationContext,
+                 NotasiActivity::class.java))
+            }
+        }
+
+
     }
 }
