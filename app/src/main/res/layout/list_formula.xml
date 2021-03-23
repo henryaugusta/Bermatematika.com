@@ -30,14 +30,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/imgTag"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp" />
-
-
                     <TextView
-                        android:id="@+id/label_notation_name"
+                        android:id="@+id/label_formula_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_serif_display_reguler"
@@ -54,36 +48,34 @@
                     android:layout_height="match_parent"
                     android:background="@color/black"/>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/label_desc_notasi"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@id/logo_arrow"
                         android:fontFamily="@font/avenir_regular"
-                        android:text="Deskripsi Notasi"
+                        android:layout_centerInParent="true"
+                        android:text="Lihat Rumus"
                         android:textColor="@color/black" />
-                </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/logo_arrow"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:tint="@color/med_blue" />
+
+
+                </RelativeLayout>
 
             </LinearLayout>
 
-
-
-            <ImageButton
-                android:visibility="gone"
-                android:id="@+id/btn_speak"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/tm_yellow"
-                android:fontFamily="@font/avenir_regular"
-                android:src="@drawable/ic_baseline_record_voice_over_24"
-                android:textAllCaps="false"
-                android:textColor="@color/tm_dark_blue" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

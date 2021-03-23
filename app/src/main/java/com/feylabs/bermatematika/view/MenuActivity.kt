@@ -18,6 +18,12 @@ class MenuActivity : AppCompatActivity() {
              startActivity(Intent(applicationContext,
                  NotasiActivity::class.java))
             }
+
+            btnClass7.setOnClickListener {
+                val intent = Intent(applicationContext,FormulaActivity::class.java)
+                intent.putExtra(FormulaActivity.CLASS_ID,"1")
+                startActivity(intent)
+            }
         }
 
 

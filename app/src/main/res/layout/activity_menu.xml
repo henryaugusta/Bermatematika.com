@@ -120,7 +120,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitEnd"
-                                android:src="@drawable/class7" />
+                                android:src="@drawable/rsz_class7" />
                         </FrameLayout>
 
                     </androidx.cardview.widget.CardView>

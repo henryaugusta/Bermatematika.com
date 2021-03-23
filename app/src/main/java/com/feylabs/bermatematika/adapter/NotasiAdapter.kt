@@ -6,27 +6,45 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.feylabs.bermatematika.R
 import com.feylabs.bermatematika.databinding.ListNotationBinding
 import com.feylabs.bermatematika.model.notasi.NotasiModel
 import com.feylabs.bermatematika.util.ImageSRCRender
+import java.util.*
+import kotlin.collections.ArrayList
 
-class NotasiAdapter : RecyclerView.Adapter<NotasiAdapter.NotasiViewHolder>() {
+class NotasiAdapter : RecyclerView.Adapter<NotasiAdapter.NotasiViewHolder>() , Filterable{
 
     lateinit var notasiInterface: NotasiInterface
 
-
+    var notationDataFilter = arrayListOf<NotasiModel>()
     var notationData = arrayListOf<NotasiModel>()
 
     fun setInterface(notasiInterface : NotasiInterface) {
         this.notasiInterface = notasiInterface
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotasiViewHolder {
+        return NotasiViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.list_notation, parent, false)
+        )
+    }
+
+
+    fun searchData(query:String){
+
+    }
+
     fun setNotationData(data: MutableList<NotasiModel>) {
         notationData.clear()
         notationData.addAll(data)
+
+        notationDataFilter.clear()
+        notationDataFilter.addAll(data)
     }
 
     inner class NotasiViewHolder(v: View) : RecyclerView.ViewHolder(v) {
@@ -68,16 +86,11 @@ class NotasiAdapter : RecyclerView.Adapter<NotasiAdapter.NotasiViewHolder>() {
 //                binding.labelNotationName.text = Html.fromHtml(notasiModel.notation)
                 binding.labelDescNotasi.text = Html.fromHtml(notasiModel.read)
             }
-
         }
-
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotasiViewHolder {
-        return NotasiViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.list_notation, parent, false)
-        )
-    }
+
+
 
     override fun getItemCount(): Int {
         return notationData.size
@@ -90,5 +103,39 @@ class NotasiAdapter : RecyclerView.Adapter<NotasiAdapter.NotasiViewHolder>() {
     interface NotasiInterface {
         fun setSound(model : NotasiModel)
     }
+
+
+
+    override fun getFilter(): Filter {
+        return object : Filter(){
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearched = constraint.toString()
+                if (charSearched.isEmpty()){
+                    notationDataFilter = notationData
+                    notifyDataSetChanged()
+                }else{
+                    val resultList = ArrayList<NotasiModel>()
+                    for (row in notationData){
+                        if (row.read.toLowerCase(Locale.ROOT).contains(charSearched.toLowerCase(Locale.ROOT))){
+                            resultList.add(row)
+                        }
+                    }
+                    notationDataFilter = resultList
+                }
+
+                val filterResult = FilterResults()
+                filterResult.values = notationDataFilter
+                setNotationData(notationDataFilter)
+                notifyDataSetChanged()
+                return filterResult
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+//                notationDataFilter = results?.values as ArrayList<NotasiModel>
+            }
+
+        }
+    }
+
 
 }

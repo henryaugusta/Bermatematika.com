@@ -2,10 +2,9 @@ package com.feylabs.bermatematika.view
 
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.speech.tts.TextToSpeech.OnInitListener
 import android.util.Log
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +34,24 @@ class NotasiActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityNotasiBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
+
+        val searchView = viewBinding.searchView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                notasiAdapter.filter.filter(query.toString())
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText.toString().isBlank() ){
+                    notasiViewModel.getNotasi()
+                    notasiAdapter.setNotationData(listNotasi)
+                }
+                return false
+            }
+
+        })
 
         mTTS = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
             if (status != TextToSpeech.ERROR) {
@@ -72,7 +89,8 @@ class NotasiActivity : BaseActivity() {
         notasiViewModel.notasiLiveData.observe(this, Observer {
             if (it.size != null) {
                 viewBinding.loading.root.visibility = View.GONE
-                notasiAdapter.setNotationData(it)
+                listNotasi = it
+                notasiAdapter.setNotationData(listNotasi)
                 notasiAdapter.notifyDataSetChanged()
                 Log.d("DATA STATUS", "ADA DATA")
                 viewBinding.rvObject.adapter = notasiAdapter

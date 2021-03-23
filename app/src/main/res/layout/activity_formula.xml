@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    tools:listitem="@layout/list_notation" />
+                    tools:listitem="@layout/list_formula" />
 
 
             </LinearLayout>

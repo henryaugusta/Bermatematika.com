@@ -30,7 +30,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/dm_serif_display_reguler"
             android:text="@string/kamus_notasi_matematika"
-            android:textColor="@color/white"
+            android:textColor="@color/blue_jeans"
             android:textSize="20sp" />
         <TextView
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/dm_serif_display_reguler"
             android:text="@string/desc_math"
-            android:textColor="@color/white"
+            android:textColor="@color/blue_jeans"
             android:textSize="14sp" />
 
         <androidx.cardview.widget.CardView
