@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:orientation="vertical"
+    android:layout_marginTop="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom">
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentStart="true"
+                        android:id="@+id/label_detail_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@color/blue_jeans"
+                        android:fontFamily="@font/dm_serif_display_reguler"
+                        android:text="@string/nama_rumus" />
+
+                    <ImageButton
+                        android:id="@+id/btn_close_detail_formula"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_close_24"
+                        android:tint="#e84545"
+                        android:backgroundTint="@color/white"/>
+                </RelativeLayout>
+
+
+                <View
+                    android:background="@color/blue_jeans"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp" />
+
+                <WebView
+                    android:id="@+id/webView"
+                    android:layout_marginBottom="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+</FrameLayout>

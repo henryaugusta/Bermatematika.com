@@ -6,8 +6,6 @@
     android:layout_height="match_parent">
 
 
-
-
     <ImageView
         android:layout_alignParentStart="true"
         android:id="@+id/imageView"
@@ -15,7 +13,6 @@
         android:layout_height="300dp"
         android:background="@drawable/ic_math_bg"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
     <LinearLayout
@@ -104,12 +101,12 @@
 
 
     <LinearLayout
+        android:id="@+id/loading"
         android:elevation="99dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
         <include
-            android:id="@+id/loading"
             layout="@layout/layout_loading"/>
     </LinearLayout>
 

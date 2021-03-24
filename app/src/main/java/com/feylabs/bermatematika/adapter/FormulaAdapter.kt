@@ -12,6 +12,10 @@ class FormulaAdapter : RecyclerView.Adapter<FormulaAdapter.FormulaViewHolder>(){
     var dataFormula = mutableListOf<FormulaModel>()
     lateinit var mFormulaListInterface : FormulaListInterface
 
+    fun setFormulaData(mData : MutableList<FormulaModel>){
+        this.dataFormula = mData
+    }
+
     fun setFormulaInterface(mFormulaListInterface : FormulaListInterface){
         this.mFormulaListInterface = mFormulaListInterface
     }
@@ -42,14 +46,12 @@ class FormulaAdapter : RecyclerView.Adapter<FormulaAdapter.FormulaViewHolder>(){
         }
     }
 
-
-    interface FormulaListInterface{
-        fun onclick(formulaModel : FormulaModel)
-    }
-
-
-
 }
+interface FormulaListInterface{
+    fun onclick(formulaModel : FormulaModel)
+}
+
+
 
 
 
