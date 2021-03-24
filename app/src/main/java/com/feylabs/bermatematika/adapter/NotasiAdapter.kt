@@ -35,10 +35,6 @@ class NotasiAdapter : RecyclerView.Adapter<NotasiAdapter.NotasiViewHolder>() , F
     }
 
 
-    fun searchData(query:String){
-
-    }
-
     fun setNotationData(data: MutableList<NotasiModel>) {
         notationData.clear()
         notationData.addAll(data)

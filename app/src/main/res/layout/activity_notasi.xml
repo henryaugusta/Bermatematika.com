@@ -109,7 +109,7 @@
         android:layout_height="match_parent"
         >
         <include
-            android:id="@+id/loading"
+            android:id="@+id/loadingz"
             layout="@layout/layout_loading"/>
     </LinearLayout>
 

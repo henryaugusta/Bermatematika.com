@@ -3,6 +3,7 @@ package com.feylabs.bermatematika.view
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +25,8 @@ class FormulaActivity : BaseActivity() {
 
     lateinit var formulaDetail : FormulaDetail
 
+    val listFormula = mutableListOf<FormulaModel>()
+
     companion object{
         const val CLASS_ID = "CLASS_AIDI"
     }
@@ -38,6 +41,26 @@ class FormulaActivity : BaseActivity() {
         //Hide Loading Indicator
         viewBinding.loading.visibility= View.GONE
 
+        val searchView = viewBinding.searchView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                formulaAdapter.filter.filter(query.toString())
+                viewBinding.rvObject.recycledViewPool.clear();
+                formulaAdapter.notifyDataSetChanged()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText.toString().isBlank() ){
+                    formulaViewModel.getFormulaByClass(intent.getStringExtra(CLASS_ID).toString())
+//                    formulaAdapter.setFormulaData(listFormula)
+                }
+                return false
+            }
+
+        })
+
 
         formulaAdapter = FormulaAdapter()
         formulaDetail = FormulaDetail(this)
@@ -50,9 +73,11 @@ class FormulaActivity : BaseActivity() {
                     labelDetailTitle.text = formulaModel.name
                     Log.d("formula",formulaModel.formula)
                     val html = "<html><body>${formulaModel.formula}</body></html>"
+                    webView.settings.javaScriptEnabled=true
                     webView.loadData(html,"text/html;charset=utf-8", "UTF-8")
 
                     btnCloseDetailFormula.setOnClickListener {
+                        formulaDetail.dismiss(true)
                     }
                 }
 
@@ -74,9 +99,11 @@ class FormulaActivity : BaseActivity() {
         viewBinding.loading.visibility= View.VISIBLE
         formulaViewModel.formulaLiveData.observe(this, Observer {
             if (it!=null){
+                listFormula.clear()
+                listFormula.addAll(it)
                 viewBinding.loading.visibility= View.GONE
-                "Menampilkan ${it.size} Data".makeLongToast()
-                formulaAdapter.setFormulaData(it)
+                "Menampilkan ${listFormula.size} Data".makeLongToast()
+                formulaAdapter.setFormulaData(listFormula)
                 formulaAdapter.notifyDataSetChanged()
             }else{
                 viewBinding.loading.visibility= View.GONE

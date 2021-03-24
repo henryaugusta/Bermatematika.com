@@ -40,14 +40,17 @@ class NotasiActivity : BaseActivity() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 notasiAdapter.filter.filter(query.toString())
+                notasiAdapter.notifyDataSetChanged()
+
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText.toString().isBlank() ){
                     notasiViewModel.getNotasi()
-                    notasiAdapter.setNotationData(listNotasi)
+//                    notasiAdapter.setNotationData(listNotasi)
                 }
+                notasiAdapter.notifyDataSetChanged()
                 return false
             }
 
@@ -79,7 +82,7 @@ class NotasiActivity : BaseActivity() {
         })
 
 
-        viewBinding.loading.root.visibility = View.VISIBLE
+        viewBinding.loadingz.root.visibility = View.VISIBLE
         viewBinding.rvObject.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(applicationContext)
@@ -88,7 +91,7 @@ class NotasiActivity : BaseActivity() {
 
         notasiViewModel.notasiLiveData.observe(this, Observer {
             if (it.size != null) {
-                viewBinding.loading.root.visibility = View.GONE
+                viewBinding.loadingz.root.visibility = View.GONE
                 listNotasi = it
                 notasiAdapter.setNotationData(listNotasi)
                 notasiAdapter.notifyDataSetChanged()
@@ -96,7 +99,7 @@ class NotasiActivity : BaseActivity() {
                 viewBinding.rvObject.adapter = notasiAdapter
                 "Menampilkan ${it.size} Rumus".makeLongToast()
             } else {
-                viewBinding.loading.root.visibility = View.GONE
+                viewBinding.loadingz.root.visibility = View.GONE
                 Log.d("DATA STATUS", "TIDAK ADA DATA")
                 "Tidak Ada Data".makeLongToast()
             }

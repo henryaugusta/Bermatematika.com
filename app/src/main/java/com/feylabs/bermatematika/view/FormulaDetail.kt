@@ -25,6 +25,7 @@ class FormulaDetail(
     }
 
     fun closeDialog(){
+
     }
 
 }
