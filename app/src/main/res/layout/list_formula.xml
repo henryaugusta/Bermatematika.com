@@ -36,7 +36,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_serif_display_reguler"
                         android:text="@string/nama_rumus"
-                        android:textColor="@color/black"
+                        android:textColor="@color/blue_jeans"
                         android:textSize="20sp" />
 
                 </LinearLayout>

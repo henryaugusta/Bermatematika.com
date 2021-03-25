@@ -117,6 +117,7 @@
                             </LinearLayout>
 
                             <ImageView
+                                android:id="@+id/imgClass7"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitEnd"
@@ -126,6 +127,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/btnClass9"
                         android:layout_width="match_parent"
                         android:layout_height="240dp"
                         android:layout_marginEnd="10dp"
@@ -166,6 +168,7 @@
                                 android:gravity="bottom">
 
                                 <ImageView
+                                    android:id="@+id/imgClass9"
                                     android:layout_width="match_parent"
                                     android:layout_height="170dp"
                                     android:scaleType="fitEnd"
@@ -175,6 +178,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/btnClass11"
                         android:layout_width="match_parent"
                         android:layout_height="240dp"
                         android:layout_marginEnd="10dp"
@@ -215,6 +219,7 @@
                                 android:gravity="bottom">
 
                                 <ImageView
+                                    android:id="@+id/imgClass11"
                                     android:layout_width="match_parent"
                                     android:layout_height="170dp"
                                     android:scaleType="fitEnd"
@@ -232,6 +237,7 @@
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/btnClass8"
                         android:layout_width="match_parent"
                         android:layout_height="240dp"
                         android:layout_marginStart="10dp"
@@ -272,15 +278,17 @@
                                 android:gravity="bottom">
 
                                 <ImageView
+                                    android:id="@+id/imgClass8"
                                     android:layout_width="match_parent"
                                     android:layout_height="170dp"
                                     android:scaleType="fitEnd"
-                                    android:src="@drawable/class8" />
+                                    android:src="@drawable/rsz_class8" />
                             </LinearLayout>
                         </FrameLayout>
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/btnClass10"
                         android:layout_width="match_parent"
                         android:layout_height="240dp"
                         android:layout_marginStart="10dp"
@@ -298,6 +306,7 @@
                                 android:gravity="bottom">
 
                                 <ImageView
+                                    android:id="@+id/imgClass10"
                                     android:layout_width="match_parent"
                                     android:layout_height="200dp"
                                     android:scaleType="fitCenter"
@@ -332,6 +341,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/btnClass12"
                         android:layout_width="match_parent"
                         android:layout_height="220dp"
                         android:layout_marginStart="10dp"
@@ -349,6 +359,7 @@
                                 android:gravity="bottom">
 
                                 <ImageView
+                                    android:id="@+id/imgClass12"
                                     android:layout_width="match_parent"
                                     android:layout_height="160dp"
                                     android:scaleType="fitCenter"

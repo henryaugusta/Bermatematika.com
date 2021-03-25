@@ -84,7 +84,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_object"
                     android:layout_width="match_parent"
