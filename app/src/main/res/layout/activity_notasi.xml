@@ -6,8 +6,6 @@
     android:layout_height="match_parent">
 
 
-
-
     <ImageView
         android:layout_alignParentStart="true"
         android:id="@+id/imageView"
@@ -15,6 +13,7 @@
         android:layout_height="300dp"
         android:background="@drawable/ic_math_bg"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 
 
@@ -68,16 +67,11 @@
 
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardBackgroundColor="@android:color/transparent"
-        android:layout_below="@id/containerTitle"
-        app:cardElevation="3dp">
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="20dp"
+            android:layout_above="@id/containerAudio"
+            android:layout_below="@id/containerTitle"
+            app:cardCornerRadius="00dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:cardElevation="0dp">
@@ -95,11 +89,58 @@
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
                     tools:listitem="@layout/list_notation" />
-
-
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/containerAudio"
+        app:cardCornerRadius="20dp"
+        android:elevation="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        tools:ignore="WebViewLayout">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:fontFamily="@font/dm_serif_display_reguler"
+                android:text="@string/cara_baca_notasi"
+                android:textColor="@color/blue_jeans"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:fontFamily="@font/dm_serif_display_reguler"
+                android:textSize="12sp"
+                android:text="@string/klik_notasi_dan_tombol_play_untuk_memutar_suara"
+                android:textColor="@color/blue_jeans" />
+
+            <WebView
+                android:layout_marginTop="20dp"
+                android:id="@+id/webViewAudio"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"/>
+            <com.hugomatilla.audioplayerview.AudioPlayerView
+                android:visibility="gone"
+                android:id="@+id/MyAudioPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
 
 
@@ -107,6 +148,7 @@
         android:elevation="99dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         >
         <include
             android:id="@+id/loadingz"

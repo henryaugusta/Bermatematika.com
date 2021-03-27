@@ -13,6 +13,7 @@ import com.feylabs.bermatematika.databinding.ActivityNotasiBinding
 import com.feylabs.bermatematika.model.notasi.NotasiModel
 import com.feylabs.bermatematika.util.BaseActivity
 import com.feylabs.bermatematika.viewmodel.NotasiViewModel
+import com.hugomatilla.audioplayerview.AudioPlayerView
 import java.util.*
 
 class NotasiActivity : BaseActivity() {
@@ -71,11 +72,51 @@ class NotasiActivity : BaseActivity() {
         notasiAdapter.setInterface(object : NotasiAdapter.NotasiInterface {
 
             override fun setSound(model: NotasiModel) {
+
+//                String url = "url-to-your-mp3-file.mp3"
+//                AudioPlayerView audioPlayerView = (AudioPlayerView) findViewById(R.id.player);
+//                audioPlayerView.withUrl(url);
+
+                val webView = viewBinding.webViewAudio
+                val soundURL = "http://math.feylaboratory.xyz/uploads/audio/${model.audioPath}"
+
+                val html = "<!DOCTYPE html>\n" +
+                        "<html>\n" +
+                        "<body>\n" +
+                        "\n" +
+                        "<audio controls style='width:100%'>\n" +
+                        "  <source src=\"${soundURL}\" type=\"audio/mp4\">\n" +
+                        "Your browser does not support the audio element.\n" +
+                        "</audio>\n" +
+                        "\n" +
+                        "</body>\n" +
+                        "</html>\n"
+                webView.settings.javaScriptEnabled=true
+                webView.loadData(html,"text/html;charset=utf-8", "UTF-8")
+
+
+                val audioPlayer = viewBinding.MyAudioPlayer as AudioPlayerView
+                audioPlayer.withUrl(soundURL)
+
+                audioPlayer.setOnAudioPlayerViewListener(object :AudioPlayerView.OnAudioPlayerViewListener{
+                    override fun onAudioFinished() {
+                    }
+
+                    override fun onAudioPreparing() {
+//
+                    }
+
+                    override fun onAudioReady() {
+                    }
+
+                })
+
+
                 val toSpeak = model.read.toString()
                 if (toSpeak.equals("")) {
                     "Tidak Ada Petunjuk Suara".makeShortToast()
                 } else {
-                    mTTS.speak(model.read, TextToSpeech.QUEUE_FLUSH, null)
+//                    mTTS.speak(model.read, TextToSpeech.QUEUE_FLUSH, null)
                 }
             }
 

@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:fontFamily="@font/dm_serif_display_reguler"
-            android:text="@string/kamus_notasi_matematika"
+            android:text="@string/kamus_matematika"
             android:textColor="@color/blue_jeans"
             android:textSize="20sp" />
         <TextView
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:fontFamily="@font/dm_serif_display_reguler"
-            android:text="@string/desc_math"
+            android:text="@string/alt"
             android:textColor="@color/blue_jeans"
             android:textSize="14sp" />
 

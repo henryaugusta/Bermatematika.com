@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bermatematika">
-        <activity android:name=".view.FormulaActivity"></activity>
+        <activity android:name=".view.QuestionActivity"></activity>
+        <activity android:name=".view.FormulaActivity" />
         <activity android:name=".view.NotasiActivity" />
         <activity android:name=".view.MenuActivity" />
         <activity android:name=".view.MainActivity">

@@ -58,6 +58,37 @@ class MenuActivity : AppCompatActivity() {
                 intent.putExtra(FormulaActivity.CLASS_ID,"6")
                 moveActivity(intent)
             }
+
+            btnQuestion7.setOnClickListener {
+                val intent = Intent(applicationContext,QuestionActivity::class.java)
+                intent.putExtra(QuestionActivity.CLASS_CODE,"1")
+                moveActivity(intent)
+            }
+            btnQuestion8.setOnClickListener {
+                val intent = Intent(applicationContext,QuestionActivity::class.java)
+                intent.putExtra(QuestionActivity.CLASS_CODE,"2")
+                moveActivity(intent)
+            }
+            btnQuestion9.setOnClickListener {
+                val intent = Intent(applicationContext,QuestionActivity::class.java)
+                intent.putExtra(QuestionActivity.CLASS_CODE,"3")
+                moveActivity(intent)
+            }
+            btnQuestion10.setOnClickListener {
+                val intent = Intent(applicationContext,QuestionActivity::class.java)
+                intent.putExtra(QuestionActivity.CLASS_CODE,"4")
+                moveActivity(intent)
+            }
+            btnQuestion11.setOnClickListener {
+                val intent = Intent(applicationContext,QuestionActivity::class.java)
+                intent.putExtra(QuestionActivity.CLASS_CODE,"5")
+                moveActivity(intent)
+            }
+            btnQuestion12.setOnClickListener {
+                val intent = Intent(applicationContext,QuestionActivity::class.java)
+                intent.putExtra(QuestionActivity.CLASS_CODE,"6")
+                moveActivity(intent)
+            }
         }
     }
 
