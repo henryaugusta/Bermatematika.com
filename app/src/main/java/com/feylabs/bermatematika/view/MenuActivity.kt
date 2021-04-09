@@ -89,6 +89,10 @@ class MenuActivity : AppCompatActivity() {
                 intent.putExtra(QuestionActivity.CLASS_CODE,"6")
                 moveActivity(intent)
             }
+            btnAboutUs.setOnClickListener {
+                val intent = Intent(applicationContext,AboutUs::class.java)
+                moveActivity(intent)
+            }
         }
     }
 

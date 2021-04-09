@@ -1,8 +1,10 @@
 package com.feylabs.bermatematika.view
 
+import android.media.SoundPool
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,16 +20,18 @@ import com.feylabs.bermatematika.viewmodel.FormulaViewModel
 
 
 class FormulaActivity : BaseActivity() {
-    lateinit var formulaViewModel : FormulaViewModel
-    lateinit var formulaAdapter : FormulaAdapter
-    lateinit var viewBinding  : ActivityFormulaBinding
+    lateinit var formulaViewModel: FormulaViewModel
+    lateinit var formulaAdapter: FormulaAdapter
+    lateinit var viewBinding: ActivityFormulaBinding
 
+    private lateinit var sp: SoundPool
+    lateinit var formulaDetail: FormulaDetail
 
-    lateinit var formulaDetail : FormulaDetail
+    private var spLoaded = false
 
     val listFormula = mutableListOf<FormulaModel>()
 
-    companion object{
+    companion object {
         const val CLASS_ID = "CLASS_AIDI"
     }
 
@@ -38,12 +42,16 @@ class FormulaActivity : BaseActivity() {
         viewBinding = ActivityFormulaBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
+        sp = SoundPool.Builder()
+            .setMaxStreams(10)
+            .build()
+
         //Hide Loading Indicator
-        viewBinding.loading.visibility= View.GONE
+        viewBinding.loading.visibility = View.GONE
 
         val searchView = viewBinding.searchView as SearchView
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 formulaAdapter.filter.filter(query.toString())
                 viewBinding.rvObject.recycledViewPool.clear();
@@ -52,7 +60,7 @@ class FormulaActivity : BaseActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if (newText.toString().isBlank() ){
+                if (newText.toString().isBlank()) {
                     formulaViewModel.getFormulaByClass(intent.getStringExtra(CLASS_ID).toString())
 //                    formulaAdapter.setFormulaData(listFormula)
                 }
@@ -67,14 +75,17 @@ class FormulaActivity : BaseActivity() {
 
         formulaAdapter.setFormulaInterface(object : FormulaListInterface {
             override fun onclick(formulaModel: FormulaModel) {
+
+
+
                 formulaModel.name.makeLongToast()
                 formulaDetail.show()
                 formulaDetail.formulaDetailBinding.apply {
                     labelDetailTitle.text = formulaModel.name
-                    Log.d("formula",formulaModel.formula)
+                    Log.d("formula", formulaModel.formula)
                     val html = "<html><body>${formulaModel.formula}</body></html>"
-                    webView.settings.javaScriptEnabled=true
-                    webView.loadData(html,"text/html;charset=utf-8", "UTF-8")
+                    webView.settings.javaScriptEnabled = true
+                    webView.loadData(html, "text/html;charset=utf-8", "UTF-8")
 
                     btnCloseDetailFormula.setOnClickListener {
                         formulaDetail.dismiss(true)
@@ -96,17 +107,17 @@ class FormulaActivity : BaseActivity() {
         formulaViewModel.getFormulaByClass(class_id.toString())
 
         //SHOW LOADING INDICATOR
-        viewBinding.loading.visibility= View.VISIBLE
+        viewBinding.loading.visibility = View.VISIBLE
         formulaViewModel.formulaLiveData.observe(this, Observer {
-            if (it!=null){
+            if (it != null) {
                 listFormula.clear()
                 listFormula.addAll(it)
-                viewBinding.loading.visibility= View.GONE
-                "Menampilkan ${listFormula.size} Data".makeLongToast()
+                viewBinding.loading.visibility = View.GONE
+                "Menampilkan ${listFormula.size} Rumus".makeLongToast()
                 formulaAdapter.setFormulaData(listFormula)
                 formulaAdapter.notifyDataSetChanged()
-            }else{
-                viewBinding.loading.visibility= View.GONE
+            } else {
+                viewBinding.loading.visibility = View.GONE
                 "Belum Ada Data".makeLongToast()
             }
         })

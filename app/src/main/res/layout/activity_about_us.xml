@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.AboutUs">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/avenir_regular"
+                android:text="Tentang Aplikasi Ini"
+                android:layout_marginBottom="50dp"
+                android:textStyle="bold"
+                android:textColor="@color/blue_jeans"
+                android:textSize="30sp" />
+            <TextView
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dm_serif_display_reguler"
+                android:text="Aplikasi kamus matematika ini merupakan salah satu inovasi dalam pendidikan matematika, dimana aplikasi ini tidak hanya kumpulan dari rumus dan contoh soalnya, tetapi terdapat juga notasi-notasi yang sering digunakan pada pembelajaran matematika. Penyusunan kamus ini berdasarkan kurikulum K-13 edisi revisi."
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

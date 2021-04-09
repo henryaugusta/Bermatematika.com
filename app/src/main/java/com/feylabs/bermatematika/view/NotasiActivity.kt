@@ -1,5 +1,8 @@
 package com.feylabs.bermatematika.view
 
+import android.media.AudioManager
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
@@ -15,6 +18,7 @@ import com.feylabs.bermatematika.util.BaseActivity
 import com.feylabs.bermatematika.viewmodel.NotasiViewModel
 import com.hugomatilla.audioplayerview.AudioPlayerView
 import java.util.*
+
 
 class NotasiActivity : BaseActivity() {
     lateinit var viewBinding: ActivityNotasiBinding
@@ -80,6 +84,17 @@ class NotasiActivity : BaseActivity() {
                 val webView = viewBinding.webViewAudio
                 val soundURL = "http://math.feylaboratory.xyz/uploads/audio/${model.audioPath}"
 
+                try {
+                    val uri: Uri = Uri.parse(soundURL)
+                    val player = MediaPlayer()
+                    player.setAudioStreamType(AudioManager.STREAM_MUSIC)
+                    player.setDataSource(applicationContext, uri)
+                    player.prepare()
+                    player.start()
+                } catch (e: Exception) {
+                    println(e.toString())
+                }
+
                 val html = "<!DOCTYPE html>\n" +
                         "<html>\n" +
                         "<body>\n" +
@@ -138,7 +153,7 @@ class NotasiActivity : BaseActivity() {
                 notasiAdapter.notifyDataSetChanged()
                 Log.d("DATA STATUS", "ADA DATA")
                 viewBinding.rvObject.adapter = notasiAdapter
-                "Menampilkan ${it.size} Rumus".makeLongToast()
+                "Menampilkan ${it.size} Notasi".makeLongToast()
             } else {
                 viewBinding.loadingz.root.visibility = View.GONE
                 Log.d("DATA STATUS", "TIDAK ADA DATA")

@@ -59,6 +59,8 @@ dependencies {
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.github.HugoMatilla:AudioPlayerView:v1.0.1'
 
+//    https://github.com//
+
 //    implementation 'org.sufficientlysecure:html-textview:3.9'
 //    implementation 'com.github.anggastudio:DynamicImageGetter:1.5.0'
 //    implementation 'com.github.NightWhistler:HtmlSpanner:0.4'
