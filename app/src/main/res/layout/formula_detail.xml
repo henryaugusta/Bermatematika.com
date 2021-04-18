@@ -71,6 +71,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:background="@color/blue_jeans" />
+            
+
 
 
             <TextView
@@ -111,7 +113,7 @@
                             android:gravity="center"
                             android:fontFamily="@font/avenir_regular"
                             android:textColor="@color/black"
-                            android:text="Klik Untuk Lihat Contoh Soal (Jika Ada)"
+                            android:text="Klik Untuk Lihat Contoh Soal"
                              />
 
                         <ImageView

@@ -122,7 +122,6 @@ class FormulaActivity : BaseActivity() {
         }
 
 
-
         formulaViewModel = ViewModelProvider(this).get(FormulaViewModel::class.java)
         formulaViewModel.getFormulaByClass(class_id.toString())
 
