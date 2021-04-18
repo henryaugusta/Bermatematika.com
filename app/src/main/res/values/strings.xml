@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Bermatematika</string>
     <string name="start">Mulai</string>
-    <string name="nama_notasi">Nama Notasi</string>
     <string name="loading">Loading</string>
     <string name="desc_math">Daftar simbol notasi matematika populer \natau yang sering digunakan</string>
     <string name="kamus_notasi_matematika">Kamus Notasi Matematika</string>

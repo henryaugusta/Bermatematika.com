@@ -49,9 +49,6 @@ class NotasiAdapter : RecyclerView.Adapter<NotasiAdapter.NotasiViewHolder>() , F
             binding.imgTag.visibility=View.VISIBLE
             binding.labelNotationName.visibility=View.GONE
 
-            binding.btnSpeak.setOnClickListener {
-                notasiInterface.setSound(notasiModel)
-            }
 
             binding.baseView.setOnClickListener {
                 notasiInterface.setSound(notasiModel)
