@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dm_serif_display_reguler"
-                android:text="Aplikasi Bantu Belajar Matematika Untuk Siswa SMP &amp; SMA"
+                android:text="Aplikasi Bantu Belajar Matematika Untuk Siswa SMP &amp; SMA Sederajat"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
@@ -113,7 +113,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/avenir_regular"
-                                    android:text="VII - SMP"
+                                    android:text="VII - SMP/MTs"
                                     android:textColor="@color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -159,7 +159,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/avenir_regular"
-                                    android:text="IX - SMP"
+                                    android:text="IX - SMP/MTs"
                                     android:textColor="@color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -210,7 +210,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/avenir_regular"
-                                    android:text="XI - SMA"
+                                    android:text="XI - SMA/MA"
                                     android:textColor="@color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -269,7 +269,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/avenir_regular"
-                                    android:text="VIII - SMP"
+                                    android:text="VIII - SMP/MTs"
                                     android:textColor="@color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -333,7 +333,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/avenir_regular"
-                                    android:text="X - SMA"
+                                    android:text="X - SMA/MA"
                                     android:textColor="@color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -386,7 +386,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/avenir_regular"
-                                    android:text="XII - SMA"
+                                    android:text="XII - SMA/MA"
                                     android:textColor="@color/white"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -399,6 +399,7 @@
                 </LinearLayout>
             </LinearLayout>
             <TextView
+                android:visibility="gone"
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -408,6 +409,7 @@
                 android:textSize="28sp" />
 
             <HorizontalScrollView
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -442,7 +444,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/avenir_regular"
-                                android:text="VII - SMP"
+                                android:text="VII - SMP/MTs"
                                 android:textColor="@color/black"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -474,7 +476,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/avenir_regular"
-                                android:text="VIII - SMP"
+                                android:text="VIII - SMP/MTs"
                                 android:textColor="@color/black"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -506,7 +508,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/avenir_regular"
-                                android:text="IX - SMP"
+                                android:text="IX - SMP/MTs"
                                 android:textColor="@color/black"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -539,7 +541,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/avenir_regular"
-                                android:text="X - SMA"
+                                android:text="X - SMA/MA"
                                 android:textColor="@color/black"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -571,7 +573,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/avenir_regular"
-                                android:text="XI - SMA"
+                                android:text="XI - SMA/MA"
                                 android:textColor="@color/black"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -603,7 +605,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/avenir_regular"
-                                android:text="XII - SMA"
+                                android:text="XII - SMA/MA"
                                 android:textColor="@color/black"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -643,6 +645,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:fontFamily="@font/dm_serif_display_reguler"
                 android:text="@string/copyright_feylaboratory_2020"/>
         </LinearLayout>

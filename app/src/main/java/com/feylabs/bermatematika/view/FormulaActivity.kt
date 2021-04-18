@@ -76,16 +76,34 @@ class FormulaActivity : BaseActivity() {
         formulaAdapter.setFormulaInterface(object : FormulaListInterface {
             override fun onclick(formulaModel: FormulaModel) {
 
+                val lowerCaseStudy = formulaModel.formula.toLowerCase()
+
+                val studyCase = lowerCaseStudy.substringAfterLast("contoh")
+
+//                var studyCase = ""
+//
+//                studyCase = if (studyCase1!=""){
+//                    studyCase1
+//                }else{
+//                    studyCase2
+//                }
+
+                val formulaPure = formulaModel.formula.substringBefore("Contoh")
+
+
 
 
                 formulaModel.name.makeLongToast()
                 formulaDetail.show()
                 formulaDetail.formulaDetailBinding.apply {
                     labelDetailTitle.text = formulaModel.name
-                    Log.d("formula", formulaModel.formula)
-                    val html = "<html><body>${formulaModel.formula}</body></html>"
+                    val html = "<html><body>${formulaPure}</body></html>"
                     webView.settings.javaScriptEnabled = true
                     webView.loadData(html, "text/html;charset=utf-8", "UTF-8")
+
+                    val htmlConso = "<html><body>${studyCase}</body></html>"
+                    webViewContohSoal.settings.javaScriptEnabled = true
+                    webViewContohSoal.loadData(htmlConso, "text/html;charset=utf-8", "UTF-8")
 
                     btnCloseDetailFormula.setOnClickListener {
                         formulaDetail.dismiss(true)
@@ -102,6 +120,8 @@ class FormulaActivity : BaseActivity() {
             it.setHasFixedSize(true)
             it.adapter = formulaAdapter
         }
+
+
 
         formulaViewModel = ViewModelProvider(this).get(FormulaViewModel::class.java)
         formulaViewModel.getFormulaByClass(class_id.toString())

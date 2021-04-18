@@ -58,11 +58,15 @@ dependencies {
 
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.github.mergehez:ArgPlayer:v2.0'
+
+    implementation "com.github.skydoves:expandablelayout:1.0.6"
 //    https://github.com//
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+
+    implementation 'com.github.florent37:expansionpanel:1.2.4'
 
 //    implementation 'org.sufficientlysecure:html-textview:3.9'
 //    implementation 'com.github.anggastudio:DynamicImageGetter:1.5.0'

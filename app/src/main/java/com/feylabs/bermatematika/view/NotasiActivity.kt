@@ -1,27 +1,19 @@
 package com.feylabs.bermatematika.view
 
-import android.R
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.arges.sepan.argmusicplayer.Enums.AudioType
-import com.arges.sepan.argmusicplayer.IndependentClasses.ArgAudio
-import com.arges.sepan.argmusicplayer.PlayerViews.ArgPlayerSmallView
 import com.feylabs.bermatematika.adapter.NotasiAdapter
 import com.feylabs.bermatematika.databinding.ActivityNotasiBinding
 import com.feylabs.bermatematika.model.notasi.NotasiModel
 import com.feylabs.bermatematika.util.BaseActivity
 import com.feylabs.bermatematika.viewmodel.NotasiViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 import java.util.*
 
 
@@ -31,9 +23,6 @@ class NotasiActivity : BaseActivity() {
     lateinit var notasiAdapter: NotasiAdapter
     lateinit var mTTS: TextToSpeech
 
-    protected val scope = CoroutineScope(
-        Job() + Dispatchers.Main
-    )
 
     var listNotasi = mutableListOf<NotasiModel>()
 
@@ -49,6 +38,9 @@ class NotasiActivity : BaseActivity() {
         viewBinding = ActivityNotasiBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+
         val searchView = viewBinding.searchView as SearchView
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -62,7 +54,6 @@ class NotasiActivity : BaseActivity() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText.toString().isBlank()) {
                     notasiViewModel.getNotasi()
-//                    notasiAdapter.setNotationData(listNotasi)
                 }
                 notasiAdapter.notifyDataSetChanged()
                 return false

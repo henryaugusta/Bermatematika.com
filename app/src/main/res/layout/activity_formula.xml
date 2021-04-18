@@ -43,11 +43,12 @@
             android:textSize="14sp" />
 
         <androidx.cardview.widget.CardView
-            android:layout_margin="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:elevation="0dp"
             android:id="@+id/cardView"
-            android:background="@color/white"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="@color/blue_jeans"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.feylabs.bermatematika.databinding.ActivityMainBinding
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         vbinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(vbinding.root)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val sdf = SimpleDateFormat("kk:mm:ss")
         d = Date()
