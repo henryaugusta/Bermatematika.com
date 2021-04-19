@@ -17,6 +17,7 @@ import com.feylabs.bermatematika.databinding.FormulaDetailBinding
 import com.feylabs.bermatematika.model.formula.FormulaModel
 import com.feylabs.bermatematika.util.BaseActivity
 import com.feylabs.bermatematika.viewmodel.FormulaViewModel
+import java.util.*
 
 
 class FormulaActivity : BaseActivity() {
@@ -76,10 +77,13 @@ class FormulaActivity : BaseActivity() {
         formulaAdapter.setFormulaInterface(object : FormulaListInterface {
             override fun onclick(formulaModel: FormulaModel) {
 
-                val lowerCaseStudy = formulaModel.formula.toLowerCase()
+                val lowerCaseStudy = formulaModel.formula.toLowerCase(Locale.getDefault())
 
-                val studyCase = lowerCaseStudy.substringAfterLast("contoh")
+                val contohIndex = formulaModel.formula.indexOf("contoh",ignoreCase = true)
 
+
+                val studyCase = lowerCaseStudy.substring(contohIndex)
+                val formulaPure = lowerCaseStudy.substring(0,contohIndex)
 //                var studyCase = ""
 //
 //                studyCase = if (studyCase1!=""){
@@ -87,9 +91,6 @@ class FormulaActivity : BaseActivity() {
 //                }else{
 //                    studyCase2
 //                }
-
-                val formulaPure = formulaModel.formula.substringBefore("Contoh")
-
 
 
 

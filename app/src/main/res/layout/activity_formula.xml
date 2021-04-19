@@ -73,7 +73,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardBackgroundColor="@android:color/transparent"
+        app:cardBackgroundColor="@color/white"
         android:layout_below="@id/containerTitle"
         app:cardElevation="3dp">
 
@@ -96,6 +96,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
+                    android:backgroundTint="@color/white"
                     tools:listitem="@layout/list_formula" />
 
 

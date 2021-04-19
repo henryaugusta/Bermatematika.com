@@ -60,6 +60,7 @@
 
             <WebView
                 android:id="@+id/webView"
+                android:nestedScrollingEnabled="true"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:layout_marginBottom="30dp"
@@ -140,6 +141,7 @@
                                 android:id="@+id/webViewContohSoal"
                                 android:layout_width="match_parent"
                                 android:layout_height="400dp"
+                                android:nestedScrollingEnabled="true"
                                 android:layout_marginBottom="30dp"
                                 tools:ignore="WebViewLayout" />
 
