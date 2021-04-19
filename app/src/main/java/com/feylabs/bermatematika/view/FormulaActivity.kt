@@ -1,5 +1,6 @@
 package com.feylabs.bermatematika.view
 
+import android.content.Intent
 import android.media.SoundPool
 import android.os.Bundle
 import android.util.Log
@@ -98,8 +99,13 @@ class FormulaActivity : BaseActivity() {
                     webView.loadData(html, "text/html;charset=utf-8", "UTF-8")
 
                     val htmlConso = "<html><body>${studyCase}</body></html>"
-                    webViewContohSoal.settings.javaScriptEnabled = true
-                    webViewContohSoal.loadData(htmlConso, "text/html;charset=utf-8", "UTF-8")
+
+                    btnConso.setOnClickListener {
+                        startActivity(Intent(this@FormulaActivity,FormulaExampleActivity::class.java)
+                            .putExtra(FormulaExampleActivity.CONSO,htmlConso))
+                    }
+//                    webViewContohSoal.settings.javaScriptEnabled = true
+//                    webViewContohSoal.loadData(htmlConso, "text/html;charset=utf-8", "UTF-8")
 
                     btnCloseDetailFormula.setOnClickListener {
                         formulaDetail.dismiss(true)
