@@ -79,20 +79,15 @@ class FormulaActivity : BaseActivity() {
 
                 val lowerCaseStudy = formulaModel.formula.toLowerCase(Locale.getDefault())
 
-                val contohIndex = formulaModel.formula.indexOf("contoh",ignoreCase = true)
+                var formulaPure = formulaModel.formula
+                var studyCase = ""
+                var contohIndex = 0
 
-
-                val studyCase = lowerCaseStudy.substring(contohIndex)
-                val formulaPure = lowerCaseStudy.substring(0,contohIndex)
-//                var studyCase = ""
-//
-//                studyCase = if (studyCase1!=""){
-//                    studyCase1
-//                }else{
-//                    studyCase2
-//                }
-
-
+                if (formulaModel.formula.contains("contoh" , ignoreCase = true)){
+                    contohIndex = formulaModel.formula.indexOf("contoh",ignoreCase = true)
+                    studyCase = lowerCaseStudy.substring(contohIndex)
+                    formulaPure = lowerCaseStudy.substring(0,contohIndex)
+                }
 
                 formulaModel.name.makeLongToast()
                 formulaDetail.show()
